@@ -13,11 +13,6 @@ help:
 	grep -E '^\.PHONY: [a-zA-Z0-9_-]+ .*?## .*$$' $(MAKEFILE_LIST) | \
 		awk 'BEGIN {FS = "(: |##)"}; {printf "\033[36m%-30s\033[0m %s\n", $$2, $$3}'
 
-
-.PHONY: lint  ## 🐍 Lint Python files to conform to the PEP 8 style guide
-lint:
-	flake8
-
 .PHONY: conda_env  ## 🐍 Create a Python conda environment
 conda_env:
 	conda create --name tp-streamlit-sid python=3.9 -y
@@ -26,10 +21,6 @@ conda_env:
 dependencies:
 	pip install -e .[dev]
 
-.PHONY: unit_tests  ## ✅ Launch the unit tests
-unit_tests:
-	pytest tests
-
-.PHONY: unit_tests  ## 📈 Run streamlit file used_car_deals.py
+.PHONY: streamlit  ## 📈 Run streamlit file used_car_deals.py
 streamlit:
-	streamlit run used_car_deals.py
+	streamlit run dashboard.py

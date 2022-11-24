@@ -8,7 +8,12 @@ Démarrer l'invit de commande Anaconda (anaconda prompt) sur vos machines.
 
 Cloner ce répertoire à l'aide la commande : 
 ``` bash 
-git clone 
+git clone https://github.com/FabienRoussel/tp-streamlit-sid
+```
+
+Puis aller dans le répertoire éponyme :
+``` bash 
+cd tp-streamlit-sid
 ```
 
 Pour faciliter l'installation de l'environnement de développement, un [Makefile](Makefile) automatise certaines actions
@@ -23,12 +28,7 @@ Télécharger le csv sur [le challenge kaggle](https://www.kaggle.com/datasets/a
 
 Le projet utilise `conda` pour gérer les environnements virtuels Python : [Guide d'installation Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 
-Si vous êtes sur MacOS, la manière la plus directe d'installer `conda` est Homebrew :
-```shell
-$ brew install --cask miniconda
-```
-
-Une fois Miniconda installé, créez et activez un environnement virtuel Python lié au projet :
+Créer un environnement virtuel Python lié au projet :
 ```shell
 $ make conda_env
 ```
@@ -53,3 +53,10 @@ Il vous suffit d'éxécuter la commande suivant afin de démarrer l'application 
 ```shell
 $ make streamlit
 ```
+
+## Questions 
+
+Pour la suite du TP vous allez vous aider de la documentation de [plotly express](https://plotly.com/python/plotly-express/) ainsi que celle de [streamlit](https://docs.streamlit.io/).
+
+Prenez le temps de lire [cette article sur l'usage de streamlit](https://blog.octo.com/creer-une-web-app-interactive-en-10min-avec-streamlit/) 
+
