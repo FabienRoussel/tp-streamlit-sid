@@ -22,7 +22,8 @@ def _update_columns_type_and_add_columns(used_car_deals: pd.DataFrame) -> pd.Dat
         (used_car_deals_enriched['manufacturer'].notna()) &
         (used_car_deals_enriched['lat'].notna()) &
         (used_car_deals_enriched['long'].notna()) &
-        (used_car_deals_enriched['posting_date'].notna())
+        (used_car_deals_enriched['posting_date'].notna()) &
+        (used_car_deals_enriched['price'] > 0)
     ]
     used_car_deals_enriched['ordometer'] = used_car_deals_enriched['odometer'].astype('int32')
     used_car_deals_enriched['year'] = used_car_deals_enriched['year'].astype('int16')

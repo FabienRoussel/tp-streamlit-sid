@@ -22,9 +22,10 @@ que vous pouvez découvrir grâce à la commande suivante :
 make help
 ```
 
-**Si la commande c-dessus ne fonctionne pas alors utiliser l'alternative auw commandes make pour la suite du TP.**
+**Si la commande ci-dessus ne fonctionne pas, alors utiliser l'alternative aux commandes make pour la suite du TP.**
 
-Télécharger le csv sur [le challenge kaggle](https://www.kaggle.com/datasets/austinreese/craigslist-carstrucks-data?resource=download) et ajouter le au dossier `data`.
+Télécharger le csv sur [le challenge kaggle](https://www.kaggle.com/datasets/austinreese/craigslist-carstrucks-data?resource=download) et ajouter le au dossier `data`. 
+N'oubliez pas de le *unzip*.
 
 ### Création de l'environnement Conda
 
@@ -38,7 +39,7 @@ make conda_env
 **Alternative :** `conda create --name tp-streamlit-sid python=3.9 -y` 
 
 
-Une fois l'environnement installé, il vous suffit de faire la commande suivante afin de rentrer dans l'environnement:
+Une fois l'environnement installé, il vous suffit de faire la commande suivante afin de rentrer dans l'environnement :
 ``` bash
 conda activate tp-streamlit-sid
 ```
@@ -60,18 +61,18 @@ Afin de pouvoir sélectionner, dans nos notebooks, l'environnement que nous veno
 python -m ipykernel install --user --name=tp-streamlit-sid
 ```
 
-## Démarrer une notebook
+## Démarrer un notebook
 Dans un shell il vous suffit de faire.
 ``` shell
 jupyter notebook
 ```
 
 Aller dans le dossier `notebook` et ouvrez le premier fichier intitulé `analyse_exploratoire.ipynb`.
-Cliquer ensuite sur `kernel` puis `Change kernel` puis sélectionner `tp-streamlit-sid`.
+Dans la barre en haut, cliquer ensuite sur `kernel` puis `Change kernel` puis sélectionner `tp-streamlit-sid`.
 
 
 ## Lancer l'application streamlit
-Il vous suffit d'éxécuter la commande suivant afin de démarrer l'application streamlit.
+Il vous suffit d'éxécuter la commande suivante afin de démarrer l'application streamlit.
 ```shell
 make streamlit
 ```
@@ -82,10 +83,10 @@ make streamlit
 
 Pour la suite du TP vous allez vous aider de la documentation de [plotly express](https://plotly.com/python/plotly-express/) ainsi que celle de [streamlit](https://docs.streamlit.io/).
 
-Prenez le temps de lire [cette article sur l'usage de streamlit](https://blog.octo.com/creer-une-web-app-interactive-en-10min-avec-streamlit/) 
+Prenez le temps de lire [cette article sur l'usage de streamlit](https://blog.octo.com/creer-une-web-app-interactive-en-10min-avec-streamlit/). 
 
 
-#### Question 1 : Ajouter des filtre dans l'inteface
+#### Question 1 : Ajouter des filtres dans l'inteface
 Lorsque vous avez démarré streamlit, vous disposez déjà d'un filtre sur le type de véhicules. Ajoutez également les filtres suivants :
 - un filtre de type multiselect pour filtrer par constructeur, colonne `manufacturer`.
 - un filtre de type range slider sur la date d'annonce, colonne `year`.
@@ -104,17 +105,13 @@ et il faudra appeler ces méthodes dans la fonction `_update_columns_type_and_ad
 On pourra se servir de l'étape 1 en tant qu'exemple.
 
 **Etape 1 :**
-Compléter le code de la métgode `get_number_of_cylinders` dans `src/utils.py` afin de récupérer le nombre de cylindres.
+Compléter le code de la méthode `get_number_of_cylinders` dans `src/utils.py` afin de récupérer le nombre de cylindres.
 Help : Il suffit de `split` sur chaque chaine de caractères non null (not na) de la colonne `cylinder`.
 Si l'élément est null alors on indiquera -1.
 
 **Etape 2 :**
-
-**Etape 3 :**
-
-**Etape 4 :**
-
-**Etape 5 :**
+Compléter la méthode `drop_vehicules_with_more_than_300_000_kilometers` dans `src/utils.py` 
+afin de retirer tous les véhicules ayant plus de 300 000 km.
 
 
 Pour toutes les questions suivantes, aidez-vous du notebook mis à disposition pour tester vos graphes facilement.
@@ -124,13 +121,13 @@ Afficher un histogramme sur le kilométrage, colonne `odometer` des véhicules.
 Vous pouvez aider du notebook dans lequel se trouve déjà un histogramme similaire. 
 
 #### Question 4 
-De la même façon que la question 3, afficher un histogramme sur l'année. 
-N'oubliez par de passer par le même formalisme en créant la ou les méthodes nécessaires
+De la même façon que la question 3, afficher un histogramme de la colonne `year`. 
+N'oubliez par de passer par le même formalisme en créant la ou les méthodes nécessaires.
 
 #### Question 5 
 Faites deux diagrammes barres horizontales affichant :
 - les occurrences des peintures `paint_color` (le nombre de voitures ayant la même couleur). 
-- les occurrences des constructeurs `manufacturer` (le nombre de voitures ayant le même constructeur)
+- les occurrences des constructeurs `manufacturer` (le nombre de voitures ayant le même constructeur).
 
 Helper : pensez à utiliser la [méthode `value_counts()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.value_counts.html).
 
@@ -149,15 +146,15 @@ A l'aide de la longitude et de la lattitude, afficher une carte plotly avec des 
 
 #### Question 8
 
-Réaliser une carte affichant le prix moyen des véhicules par État au cours des années. 
+Réaliser une carte affichant le prix moyen des véhicules par État au fil des ans. 
 
 Il n'existe pas qu'une façon de faire, mais vous pourriez suivre celle qui est présente dans cet article : 
 https://towardsdatascience.com/simple-plotly-tutorials-868bd0890b8b.
 Vous avez également un exemple dans la documentation donnée dans la question 8.
 
 Voici également un geojson https://public.opendatasoft.com/explore/dataset/us-state-boundaries/table/. 
-La colonne `stusab` mise en minuscule pourrait faire une bonne correspondance avec notre colonne `state`
+La colonne `stusab` mise en minuscule pourrait faire une bonne correspondance avec notre colonne `state`.
  
 #### Question 9 
 
-Réorganiser votre dashboard afin d'améliorer les couleurs, diminuer ou augmenter la taille de certains graphes si nécessaire.
+Réorganiser votre dashboard afin d'améliorer les couleurs des graphes, diminuer ou augmenter la taille de certains graphes si nécessaire.
