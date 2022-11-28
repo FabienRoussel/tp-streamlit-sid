@@ -20,6 +20,8 @@ filter_by_car_types = st.sidebar.multiselect(
     car_types,
     default=['sedan'])
 
+# TODO Question 1 ici
+
 df_used_car_deals_for_type = src.filters.filter_car_deals_by_car_type(df_used_car_deals, filter_by_car_types)
 
 # Figures and charts
@@ -27,4 +29,3 @@ if not filter_by_car_types:
     st.subheader("Aucune catégorie de voitures selectionnée, sélectionnez une catégorie minumum.")
 else:
     display_charts(df_used_car_deals_for_type, filter_by_car_types)
-    assert 1 == 1
