@@ -13,7 +13,6 @@ def _histogram_odometer(df_used_car_deals: pd.DataFrame) -> None:
 
 def _example_bar_chart_mean_price_of_sold_car_by_age_of_car(df_used_car_deals: pd.DataFrame) -> None:
     # Voici un exemple de graphes affichant le prix moyen des voitures selon leur age.
-
     df_mean_price_by_age_of_car = get_mean_price_by_age_of_car(df_used_car_deals)
     fig = px.bar(df_mean_price_by_age_of_car, x='age', y='price')
     st.plotly_chart(fig, use_container_width=True)

@@ -55,6 +55,11 @@ make dependencies
 ```
 **Alternative :** `pip install -e .[dev]` 
 
+Sur windows il faut installer streamlit avec conda également :
+``` bash 
+conda install -c conda-forge streamlit
+```
+
 ## Rendre disponible le kernel pour les notebooks
 Afin de pouvoir sélectionner, dans nos notebooks, l'environnement que nous venons de créer, il est nécessaire de faire.
 ``` shell
@@ -72,7 +77,14 @@ Dans la barre en haut, cliquer ensuite sur `kernel` puis `Change kernel` puis s�
 
 
 ## Lancer l'application streamlit
-Il vous suffit d'éxécuter la commande suivante afin de démarrer l'application streamlit.
+Ouvrez un second terminal `anaconda prompt` et exécutez les lignes suivante : 
+
+``` bash 
+cd tp-streamlit-sid
+conda activate tp-streamlit-sid
+```
+
+Ensuite, il vous suffit d'éxécuter la commande suivante afin de démarrer l'application streamlit.
 ```shell
 make streamlit
 ```
